@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Awesome Form</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<link rel="stylesheet" href="style.css ">
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #2c3e50, #3498db);
+  }
+
+  .container {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+    padding: 40px;
+    width: 400px;
+    max-width: 100%;
+    text-align: center;
+    animation: fadeIn 1s ease;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+    position: relative;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  textarea,
+  input[type="password"] {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    background-color: #f5f5f5;
+    border-radius: 5px;
+    outline: none;
+    transition: background-color 0.3s ease;
+    font-size: 16px;
+    padding-left: 40px; /* Added padding to accommodate icons */
+  }
+
+  input[type="text"]:focus,
+  input[type="email"]:focus,
+  input[type="tel"]:focus,
+  textarea:focus,
+  input[type="password"]:focus {
+    background-color: #fff;
+  }
+
+  .show-password-toggle {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 14px;
+    color: #777;
+  }
+
+  .input-group {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .input-icon {
+    position: absolute;
+    left: 10px;
+    color: #777;
+  }
+
+  button {
+    background-color: #3498db;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+  }
+
+  button:hover {
+    background-color: #2980b9;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <h2>uzair animated Form</h2>
+  <form id="awesomeForm">
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <div class="input-group">
+        <i class="input-icon fas fa-user"></i>
+        <input type="text" id="name" name="name" required>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <div class="input-group">
+        <i class="input-icon fas fa-envelope"></i>
+        <input type="email" id="email" name="email" required>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="phone">Phone Number:</label>
+      <div class="input-group">
+        <i class="input-icon fas fa-phone"></i>
+        <input type="tel" id="phone" name="phone" required>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <div class="input-group">
+        <i class="input-icon fas fa-lock"></i>
+        <input type="password" id="password" name="password" required>
+        <span class="show-password-toggle" onclick="togglePasswordVisibility()">Show</span>
+      </div>
+    </div>
+    <div>
+      <button type="submit">Submit</button>
+    </div>
+  </form>
+</div>
+
+<script>
+  const form = document.getElementById("awesomeForm");
+  form.addEventListener("submit", function(event) {
+    event.preventDefault();
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const phone = document.getElementById("phone").value;
+    const password = document.getElementById("password").value;
+
+    // You can perform any further actions here, like sending data to a server or displaying a message.
+    console.log("Name:", name);
+    console.log("Email:", email);
+    console.log("Phone:", phone);
+    console.log("Password:", password);
+
+    // For demonstration purposes, let's show an alert
+    alert("Form submitted!\nName: " + name + "\nEmail: " + email + "\nPhone: " + phone + "\nPassword: " + password);
+  });
+
+  function togglePasswordVisibility() {
+    const passwordInput = document.getElementById("password");
+    if (passwordInput.type === "password") {
+      passwordInput.type = "text";
+    } else {
+      passwordInput.type = "password";
+    }
+  }
+</script>
+</body>
+</html>
